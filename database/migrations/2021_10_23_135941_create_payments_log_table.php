@@ -36,9 +36,10 @@ class CreatePaymentsLogTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments_log');
         Schema::table('payments_log', function (Blueprint $table) {
-            $table->dropForeign(['payments_log_payment_id_foreign', 'payments_log_user_id_foreign']);
+            $table->dropForeign(['payment_id']);
+            $table->dropForeign(['user_id']);
         });
+        Schema::dropIfExists('payments_log');
     }
 }

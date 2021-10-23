@@ -32,9 +32,10 @@ class CreateUserDimensionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_dimensions');
         Schema::table('user_dimensions', function (Blueprint $table) {
-            $table->dropForeign(['user_dimensions_user_id_foreign', 'user_dimensions_body_part_id_foreign']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['body_part_id']);
         });
+        Schema::dropIfExists('user_dimensions');
     }
 }

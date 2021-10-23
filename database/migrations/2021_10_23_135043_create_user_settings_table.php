@@ -32,9 +32,9 @@ class CreateUserSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_settings');
         Schema::table('user_settings', function (Blueprint $table) {
-            $table->dropForeign(['user_settings_user_id_foreign']);
+            $table->dropForeign(['user_id']);
         });
+        Schema::dropIfExists('user_settings');
     }
 }
