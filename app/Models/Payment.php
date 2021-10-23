@@ -18,5 +18,4 @@ class Payment extends Model
         'is_active',
         'is_healthy',
     ];
-
 }
