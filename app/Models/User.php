@@ -42,11 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * Get the comments for the blog post.
-     */
     public function settings(): HasMany
     {
         return $this->hasMany(UserSetting::class);
+    }
+
+    public function dimensions(): HasMany
+    {
+        return $this->hasMany(UserDimension::class);
     }
 }
