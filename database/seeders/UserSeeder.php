@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\UserSetting;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -15,6 +14,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(10)->hasSettings(3)->create();
+        User::factory(10)
+            ->hasSettings(3)
+            ->hasDimensions(10)
+            ->create();
     }
 }
