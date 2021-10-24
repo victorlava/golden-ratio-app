@@ -15,8 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->hasSettings(3)->create();
-
-        //UserSetting::factory(3)->for($user)->create();
+        User::factory(10)->hasSettings(3)->create();
     }
 }
