@@ -17,9 +17,18 @@ class UserSettingFactory extends Factory
     protected $model = UserSetting::class;
 
     private $settings = [
-        ['are_notifications_enabled' => '1'],
-        ['are_ads_enabled' => '0'],
-        ['is_night_theme_enabled' => '0'],
+        [
+            'key' => 'are_notifications_enabled',
+            'value' => '1',
+        ],
+        [
+            'key' => 'are_ads_enabled',
+            'value' => '1',
+        ],
+        [
+            'key' => 'is_night_theme_enabled',
+            'value' => '1',
+        ],
     ];
 
     /**
@@ -29,18 +38,11 @@ class UserSettingFactory extends Factory
      */
     public function definition()
     {
-        $randomNumber = $this->faker->numberBetween(0, count($this->settings));
-        $settingKeys = array_keys($this->settings);
-
-
-
-        dd(next($this->settings));
-
-        $key = $settingKeys[$randomNumber];
+        $randomIndex = $this->faker->numberBetween(0, count($this->settings) - 1);
 
         return [
-            'key' => $key,
-            'value' => $this->settings[$randomNumber][$key],
+            'key' => $this->settings[$randomIndex]['key'],
+            'value' => $this->settings[$randomIndex]['value'],
         ];
     }
 }
